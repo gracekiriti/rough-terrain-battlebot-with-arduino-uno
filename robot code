@@ -1,0 +1,73 @@
+int D0 = 2;
+int D1=3;
+int D2=4;
+int D3=5;
+
+int m1in1=8;
+int m1in2=9;
+int m2in1=10;
+int m2in2=11;
+
+int D0state = 1;
+int D1state=1;
+int D2state=1;
+int D3state=1;
+
+void setup()
+{
+pinMode(D0, INPUT);
+pinMode(D1, INPUT);
+pinMode(D2, INPUT);
+pinMode(D3, INPUT);
+
+pinMode(m1in1, OUTPUT);
+pinMode(m1in2,OUTPUT);
+pinMode(m2in1,OUTPUT);
+pinMode(m2in2,OUTPUT);
+
+}
+
+void loop()
+{
+D0state = digitalRead(D0);
+D1state = digitalRead(D1);
+D2state= digitalRead(D2);
+D3state=digitalRead(D3);
+
+if (D0state==LOW &amp;&amp; D1state==HIGH &amp;&amp; D2state==HIGH &amp;&amp; D3state==HIGH)
+{
+digitalWrite(m1in1, HIGH);
+digitalWrite(m1in2, LOW);
+digitalWrite(m2in1, HIGH);
+digitalWrite(m2in2, LOW);
+}
+else if (D0state==HIGH &amp;&amp; D1state==LOW &amp;&amp; D2state==HIGH &amp;&amp; D3state==HIGH)
+{
+digitalWrite(m1in1, LOW);
+digitalWrite(m1in2, HIGH);
+digitalWrite(m2in1, LOW);
+digitalWrite(m2in2, HIGH);
+}
+else if (D0state==HIGH &amp;&amp; D1state==HIGH &amp;&amp; D2state==LOW &amp;&amp; D3state==HIGH)
+{
+
+digitalWrite(m1in1, HIGH);
+digitalWrite(m1in2, LOW);
+digitalWrite(m2in1, LOW);
+digitalWrite(m2in2, HIGH);
+}
+else if (D0state==HIGH &amp;&amp; D1state==HIGH &amp;&amp; D2state==HIGH &amp;&amp; D3state==LOW)
+{
+digitalWrite(m1in1, LOW);
+digitalWrite(m1in2, HIGH);
+digitalWrite(m2in1, HIGH);
+digitalWrite(m2in2, LOW);
+}
+else
+{
+digitalWrite(m1in1, LOW);
+digitalWrite(m1in2, LOW);
+digitalWrite(m2in1, LOW);
+digitalWrite(m2in2, LOW);
+}
+}
